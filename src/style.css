@@ -35,7 +35,34 @@ body {
   font-weight: 500;  
 }
 
+/* Meme container */
 
+.meme--container {
+  padding: 36px;
+}
+
+form {
+  display: grid;
+  grid-template: 40px 40px / 1fr 1fr;
+  gap: 17px;
+}
+
+input {
+  font-family: "Karla", sans-serif;
+  border-radius: 5px;
+  border: 1px solid #D1D5DB;
+  text-indent: 5px;
+}
+
+.meme--button {
+  font-family: "Karla", sans-serif;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #711F8D 1.14%, #A818DA 100%);
+  grid-column: 1 / -1;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
 
 
