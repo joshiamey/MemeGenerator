@@ -10,7 +10,7 @@ const Meme = () => {
         const randomMemeIndex = Math.floor(Math.random() * memes.length);
         setMemeImg(prevMemeImg => {
             console.log('Previous url = ',prevMemeImg, ' setting to new url= ',memes[randomMemeIndex].url);
-            setMemeImg(memes[randomMemeIndex].url);
+            return memes[randomMemeIndex].url;
         })
     }
 
