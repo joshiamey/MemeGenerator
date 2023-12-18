@@ -41,7 +41,7 @@ body {
   padding: 36px;
 }
 
-form {
+.meme--form {
   display: grid;
   grid-template: 40px 40px / 1fr 1fr;
   gap: 17px;
@@ -52,6 +52,8 @@ input {
   border-radius: 5px;
   border: 1px solid #D1D5DB;
   text-indent: 5px;
+  height: 35px;
+  width: 100%;
 }
 
 .meme--button {
@@ -64,5 +66,13 @@ input {
   cursor: pointer;
 }
 
+.form--label {
+  margin-bottom: 5px;
+}
+
+.meme--img {
+  max-width: 100%;
+  margin-top: 32px;
+}
 
 
