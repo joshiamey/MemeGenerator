@@ -71,8 +71,9 @@ input {
 }
 
 .meme--img {
-  max-width: 100%;
+  width: 100%;
   margin-top: 32px;
+  border-radius: 3px;
 }
 
 
