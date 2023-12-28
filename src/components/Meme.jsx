@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import memesData from "../memesData";
+import React, { useEffect, useState } from "react";
 
+const MEMES_API_URI = "https://api.imgflip.com/get_memes";
 
 const Meme = () => {
     const [meme,setMeme] = useState({
@@ -8,16 +8,25 @@ const Meme = () => {
         bottomText:"",
         randomImg: "http://i.imgflip.com/1bij.jpg"});
 
-    const [allMemeImgs, setAllMemeImgs] = React.useState(memesData);
+    const [allMemes, setAllMemes] = React.useState([]);
+    
+    // Using effect to fetch the memes data from external URL and populate allmemes array
+    // as we want to run it once , use empty dependency list
+    useEffect(() => {
+        console.log("Fetched all Memes.")
+        fetch(MEMES_API_URI)
+        .then(resp => resp.json())
+        .then(data => setAllMemes(data.data.memes))
+    },[])
+    
 
     function getNewImage() {
-        const memes = allMemeImgs.data.memes;
-        const randomMemeIndex = Math.floor(Math.random() * memes.length);
+        const randomMemeIndex = Math.floor(Math.random() * allMemes.length);
         setMeme(prevMeme => {
-            console.log('Previous url = ',prevMeme.randomImg, ' setting to new url= ',memes[randomMemeIndex].url);
+            console.log('Previous url = ',prevMeme.randomImg, ' setting to new url= ',allMemes[randomMemeIndex].url);
             return {
                 ...prevMeme,
-                randomImg : memes[randomMemeIndex].url
+                randomImg : allMemes[randomMemeIndex].url
             }
         })
     }
