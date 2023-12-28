@@ -10,15 +10,15 @@ const Meme = () => {
 
     const [allMemes, setAllMemes] = React.useState([]);
     
-    function fetchMemes() {
-        fetch(MEMES_API_URI)
-        .then(resp => resp.json())
-        .then(data => setAllMemes(data.data.memes));
+    // Async function that fetches memes from the web
+    async function fetchMemes() {
+        const res = await fetch(MEMES_API_URI);
+        const data = await res.json();
+        setAllMemes(data.data.memes);
     }
     // Using effect to fetch the memes data from external URL and populate allmemes array
     // as we want to run it once , use empty dependency list
     useEffect(() => {
-        console.log("Fetched all Memes.");
         fetchMemes();
     },[])
     
